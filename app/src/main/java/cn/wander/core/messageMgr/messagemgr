@@ -1,0 +1,9 @@
+管理观察者发送消息和接收消息
+所有观察者初始化加入到list集合中
+
+MessageManager.java
+
+1、attachMessage和detachMessage用于注册监控者  确保ui操作都是在UI线程中执行
+2、被监控者通过handle向所有监控者发送消息
+
+
