@@ -42,75 +42,6 @@ public class DownloadMgrImpl implements IDownloadMgr {
     private List<DownloadTask> tasks = new ArrayList<>();
     private File saveDir;
 
-    /*private void queryDownloadStatus(final DownloadTask task) {
-        DownloadManager.Query query = new DownloadManager.Query();
-        query.setFilterById(task.id);
-        Cursor c = null;
-        try {
-            c = downloadManager.query(query);
-            if (c != null && c.moveToFirst()) {
-                int status = c.getInt(c.getColumnIndex(DownloadManager.COLUMN_STATUS));
-                int reasonIdx = c.getColumnIndex(DownloadManager.COLUMN_REASON);
-                int titleIdx = c.getColumnIndex(DownloadManager.COLUMN_TITLE);
-                int fileSizeIdx = c.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES);
-                int bytesDLIdx = c.getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR);
-                String title = c.getString(titleIdx);
-                int fileSize = c.getInt(fileSizeIdx);
-                int bytesDL = c.getInt(bytesDLIdx);
-                // Translate the pause reason to friendly text.
-                int reason = c.getInt(reasonIdx);
-
-                StringBuilder sb = new StringBuilder();
-                sb.append(title).append("\n");
-                sb.append("Downloaded ").append(bytesDL).append(" / ").append(fileSize);
-                // Display the status
-                Log.d(TAG, sb.toString());
-                if (fileSize <= 0) {
-                    return;
-                }
-                task.progress = bytesDL / (float) fileSize;
-                Log.d(TAG, "===" + task.progress);
-                notifyProgressChange(task);
-                if (task.state.ordinal() != status) {
-                    switch (status) {
-                        case DownloadManager.STATUS_PAUSED:
-                            Log.v(TAG, "STATUS_PAUSED");
-                            task.state = DownloadState.Paused;
-
-                        case DownloadManager.STATUS_PENDING:
-                            task.state = DownloadState.Preparing;
-                            Log.v(TAG, "STATUS_PENDING");
-
-                        case DownloadManager.STATUS_RUNNING:
-                            //正在下载，不做任何事情
-                            task.state = DownloadState.Downloading;
-                            Log.v(TAG, "STATUS_RUNNING");
-
-                        case DownloadManager.STATUS_SUCCESSFUL:
-                            //完成
-                            task.state = DownloadState.Finished;
-                            Log.v(TAG, "下载完成");
-                            downloadManager.remove(task.id);
-                            count--;
-                            break;
-
-                        case DownloadManager.STATUS_FAILED:
-                            //清除已下载的内容，重新下载
-                            task.state = DownloadState.Failed;
-                            Log.v(TAG, "STATUS_FAILED");
-
-                            break;
-                    }
-                    notifyStateChange(task);
-                }
-            }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-        }
-    }*/
-
     private void notifyListChange() {
         MessageManager.getInstance().asyncNotify(MessageID.OBSERVER_DOWNLOAD, new MessageManager.Caller<IDownloadMgrObserver>() {
             @Override
@@ -148,25 +79,6 @@ public class DownloadMgrImpl implements IDownloadMgr {
         context = App.getInstance().getApplicationContext();
         downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
     }
-
-    /*    @Override
-        public boolean addTask(DownloadBean downloadBean) {
-            DownloadTask task = new DownloadTask();
-            task.downloadBean = downloadBean;
-            String downUrl = downloadBean.getDownUrl();
-            DownloadManager.Request request = new DownloadManager.Request(Uri.parse(downUrl));
-            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, downUrl.substring(downUrl.lastIndexOf("/")));
-            request.setAllowedOverRoaming(true);
-            task.id = downloadManager.enqueue(request);
-            task.state = DownloadState.Waiting;
-            downloadChangeObserver = new DownloadChangeObserver(null);
-            downloadChangeObserver.setTask(task);
-            context.getContentResolver().registerContentObserver(CONTENT_URI, true, downloadChangeObserver);
-            count++;
-            tasks.add(task);
-            notifyListChange();
-            return true;
-        }*/
 
     @Override
     public boolean addTask(DownloadBean downloadBean) {
