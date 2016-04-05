@@ -59,7 +59,7 @@ public class App extends Application {
         instance = this;
         initImageLoader(this);
         SDCardUtils.init();
-        OkHttpFinalConfiguration.Builder builder = new OkHttpFinalConfiguration.Builder();
+        OkHttpFinalConfiguration.Builder builder = new OkHttpFinalConfiguration.Builder().setTimeout(20000);
         OkHttpFinal.getInstance().init(builder.build());
     }
 

@@ -2,10 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cn.wander.kFramework">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <permission android:name="cn.wander.kFramework.permission.ACCESS_DOWNLOAD_MANAGER" />
 
@@ -27,7 +27,20 @@
             android:name="cn.wander.ui.test.TestActivity"
             android:label="@string/title_activity_base"
             android:launchMode="singleInstance"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="cn.wander.ui.tvTest.ItemListActivity"
+            android:label="@string/title_item_list"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name="cn.wander.ui.tvTest.ItemDetailActivity"
+            android:label="@string/title_item_detail"
+            android:parentActivityName="cn.wander.ui.tvTest.ItemListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.wander.ui.tvTest.ItemListActivity" />
+        </activity>
     </application>
 
 </manifest>
