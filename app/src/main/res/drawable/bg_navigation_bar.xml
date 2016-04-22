@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:drawable="@drawable/navigation_bar_2x"/>
+    <item android:drawable="@color/kw_common_cl_white_alpha_5"/>
+    <item android:drawable="@color/kw_common_cl_black_alpha_5"/>
+</layer-list>
