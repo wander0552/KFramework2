@@ -17,6 +17,11 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="AppTheme.fullScreen">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
@@ -26,6 +31,18 @@
         <item name="android:layout_width">8dp</item>
         <item name="android:layout_height">8dp</item>
         <item name="android:background">@drawable/kw_tips_red_dot</item>
+    </style>
+
+    <style name="tabs_title">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/kw_common_cl_white</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+    </style>
+
+    <style name="des_text">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/kw_common_cl_black</item>
     </style>
 
 </resources>

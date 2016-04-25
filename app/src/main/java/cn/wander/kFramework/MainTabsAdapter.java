@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -68,6 +69,14 @@ public class MainTabsAdapter extends FragmentPagerAdapter {
             return info.f;
         }
         return null;
+    }
+
+    public TabInfo getInfo(int position) {
+        if (position > mTabs.size() || position < 0) {
+            return null;
+        }
+        TabInfo info = mTabs.get(position);
+        return info;
     }
 
     @Override

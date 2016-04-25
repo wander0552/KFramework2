@@ -4,10 +4,107 @@
     android:layout_height="match_parent"
     tools:context="cn.wander.ui.wave.WaveFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:id="@+id/main_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:scaleType="fitXY"
+        android:src="@drawable/main_bg"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/tabs_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="圈子" />
+
+            <cn.wander.Utils.views.CircleImageView
+                android:id="@+id/circle"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/header_bg" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:clickable="true"
+            android:id="@+id/encounter"
+            android:background="?attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/tabs_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="音缘" />
+
+            <cn.wander.Utils.views.CircleImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/encounter" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/tabs_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="运动" />
+
+            <cn.wander.Utils.views.CircleImageView
+                android:id="@+id/health"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/heath" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/tabs_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="音缘" />
+
+            <cn.wander.Utils.views.CircleImageView
+                android:id="@+id/child"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/child" />
+        </LinearLayout>
+
+
+    </LinearLayout>
 
 </FrameLayout>

@@ -28,6 +28,19 @@
             android:label="@string/title_activity_base"
             android:launchMode="singleInstance"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="cn.wander.ui.base.BaseActivity"
+            android:label="@string/title_activity_base"
+            android:theme="@style/AppTheme.fullScreen" />
+        <activity
+            android:name="cn.wander.ui.base.BasePublishActivity"
+            android:theme="@style/AppTheme.fullScreen" />
+        <activity
+            android:name="cn.wander.ui.encounter.EncounterActivity"
+            android:theme="@style/AppTheme.fullScreen" />
+        <activity
+            android:name="cn.wander.ui.encounter.EncounterPublishActivity"
+            android:theme="@style/AppTheme.fullScreen" />
     </application>
 
 </manifest>

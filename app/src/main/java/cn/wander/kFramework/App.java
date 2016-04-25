@@ -20,7 +20,9 @@ import java.io.File;
 
 import cn.finalteam.okhttpfinal.OkHttpFinal;
 import cn.finalteam.okhttpfinal.OkHttpFinalConfiguration;
+import cn.wander.base.utils.DeviceInfo;
 import cn.wander.base.utils.SDCardUtils;
+import cn.wander.base.utils.ScreenUtility;
 
 /**
  * Created by wander on 2016/3/10.
@@ -35,16 +37,18 @@ public class App extends Application {
 
     private static Handler mainThreadHandler = new Handler();
     private static long mainThreadID = Thread.currentThread().getId();
-    private static volatile boolean 	isExiting;
+    private static volatile boolean isExiting;
     private static boolean mainProgress;
 
 
     public static long getMainThreadID() {
         return mainThreadID;
     }
+
     public static Handler getMainThreadHandler() {
         return mainThreadHandler;
     }
+
     public static boolean isExiting() {
         return isExiting;
     }
@@ -61,6 +65,7 @@ public class App extends Application {
         SDCardUtils.init();
         OkHttpFinalConfiguration.Builder builder = new OkHttpFinalConfiguration.Builder().setTimeout(20000);
         OkHttpFinal.getInstance().init(builder.build());
+        DeviceInfo.initScreenInfo(this);
     }
 
     public static void initImageLoader(Context context) {

@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/colorPrimary"
-    android:gravity="right"
-    android:orientation="horizontal">
-
-    <ImageView
-        android:layout_width="wrap_content"
+    android:layout_height="39dp">
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/actionbar_discover"
-        android:id="@+id/square"
-        />
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/actionbar_music"
-        android:id="@+id/bosom"
-        />
+        <TextView
+            android:id="@+id/tab_title"
+            style="@style/tabs_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="声波" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/actionbar_friends"
-        android:id="@+id/mine"/>
+        <ImageView
+            android:id="@+id/square"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/actionbar_discover" />
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/bosom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/actionbar_music" />
+
+        <ImageView
+            android:id="@+id/mine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/actionbar_friends" />
+    </LinearLayout>
+</RelativeLayout>

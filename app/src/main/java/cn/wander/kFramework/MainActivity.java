@@ -9,6 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import cn.wander.ui.friends.FriendsFragment;
 import cn.wander.ui.mine.MineFragment;
@@ -23,11 +24,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView img_square;
     private ImageView img_friends;
     private ImageView img_mine;
+    private TextView title;
+    private ImageView tabs_background;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         viewPager = (ViewPager) findViewById(R.id.main_viewpager);
         mainTabsAdapter = new MainTabsAdapter(this);
         mainTabsAdapter.addTab("square", "声波", WaveFragment.class, null);
@@ -73,11 +77,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         img_friends.setOnClickListener(this);
         img_mine = (ImageView) findViewById(R.id.mine);
         img_mine.setOnClickListener(this);
+        title = (TextView) findViewById(R.id.tab_title);
+        tabs_background = (ImageView) findViewById(R.id.tabs_background);
 
         setIcon(currentPosition);
     }
 
     private void setIcon(int position) {
+        MainTabsAdapter.TabInfo info = mainTabsAdapter.getInfo(position);
+        title.setText(info.title);
         img_square.setSelected(0 == position);
         img_friends.setSelected(1 == position);
         img_mine.setSelected(2 == position);

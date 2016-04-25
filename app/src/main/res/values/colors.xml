@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="primary">#3F51B5</color>
+
     <!-- kw_common统一颜色 -->
     <!-- white -->
     <color name="kw_common_cl_white">#ffffff</color>

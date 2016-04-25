@@ -5,14 +5,26 @@
     android:layout_height="match_parent"
     tools:context="cn.wander.kFramework.MainActivity">
 
-    <include
-        android:id="@+id/actionbar"
-        layout="@layout/main_tabs" />
+    <ImageView
+        android:id="@+id/tabs_background"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:background="@color/colorPrimary" />
+
+
+
+    <include layout="@layout/main_tabs" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@id/tabs_background"
+        android:src="@color/kw_common_cl_white_alpha_50" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/main_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/actionbar" />
+        android:layout_below="@id/tabs_background" />
 
 </RelativeLayout>

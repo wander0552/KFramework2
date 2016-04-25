@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+import com.nostra13.universalimageloader.core.display.BitmapDisplayer;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +33,8 @@ public class TestAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
     private DisplayImageOptions options = new DisplayImageOptions.Builder()
             .showImageOnLoading(R.mipmap.ic_launcher)
             .cacheInMemory(true)
+            .imageScaleType(ImageScaleType.EXACTLY)
+            .displayer(new RoundedBitmapDisplayer(50))
             .cacheOnDisk(true).build();
 
     private List<DownloadTask> tasks = new ArrayList<>();
