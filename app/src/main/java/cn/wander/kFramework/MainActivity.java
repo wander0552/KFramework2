@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         viewPager.setAdapter(mainTabsAdapter);
 
         viewPager.setOffscreenPageLimit(4);
+        viewPager.requestDisallowInterceptTouchEvent(true);
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 

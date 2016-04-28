@@ -54,6 +54,14 @@ public class MainTabsAdapter extends FragmentPagerAdapter {
         }
     }
 
+    @Override
+    public CharSequence getPageTitle(int position) {
+        if (mTabs.size() == 0) {
+            return null;
+        }
+        return mTabs.get(position % mTabs.size()).title;
+    }
+
     public void addTab(String tag, String title, Class<?> clss, Bundle args) {
         mTabs.add(new TabInfo(tag, title, clss, args));
         notifyDataSetChanged();

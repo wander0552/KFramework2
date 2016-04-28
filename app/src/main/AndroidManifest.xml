@@ -41,6 +41,9 @@
         <activity
             android:name="cn.wander.ui.encounter.EncounterPublishActivity"
             android:theme="@style/AppTheme.fullScreen" />
+        <activity android:name="cn.wander.ui.health.FitnessActivity" />
+        <activity android:name="cn.wander.ui.child.ChildActivity" />
+        <activity android:name="cn.wander.ui.circle.CircleActivity"></activity>
     </application>
 
 </manifest>

@@ -4,6 +4,7 @@ import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.ViewGroup;
 
 import cn.wander.base.utils.ScreenUtility;
@@ -29,7 +30,7 @@ public class BasePublishActivity extends AppCompatActivity {
     void initToolBar() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setTitleBarHeight();
+//        setTitleBarHeight();
     }
 
     private void setTitleBarHeight() {
@@ -43,5 +44,13 @@ public class BasePublishActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 }

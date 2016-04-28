@@ -7,11 +7,13 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 
 import cn.wander.base.utils.ScreenUtility;
 import cn.wander.kFramework.R;
@@ -25,25 +27,32 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // 去除标题栏
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-
-        getWindow().setFlags(WindowManager.LayoutParams. FLAG_FULLSCREEN , WindowManager.LayoutParams. FLAG_FULLSCREEN);
-
         setContentView(R.layout.activity_base2);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
-        setTitleBarHeight();
+        loadData();
+//        setTitleBarHeight();
     }
 
-    public void setView(int layoutResID) {
-        ViewStub viewStub = (ViewStub) findViewById(R.id.activity_content);
-        if (viewStub != null) {
-            viewStub.setInflatedId(layoutResID);
-            viewStub.inflate();
+    public void loadData() {
+
+    }
+
+    public void setView(View contentLayout) {
+        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.activity_content);
+        if (frameLayout != null) {
+            frameLayout.addView(contentLayout);
+        }
+    }
+
+    public void setView(int resource) {
+        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.activity_content);
+        View view = LayoutInflater.from(this).inflate(resource, null, false);
+        if (frameLayout != null && view != null) {
+            frameLayout.addView(view);
         }
     }
 
@@ -58,4 +67,13 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

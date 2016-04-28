@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:swipe="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:showIn="@layout/activity_base2">
+
+    <cn.wander.Utils.views.flingswipe.SwipeFlingAdapterView
+        android:id="@+id/swipe_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        swipe:max_visible="4"
+        swipe:min_adapter_stack="6"
+        swipe:y_offset_step="28dp" />
 
     <TextView
+        android:id="@+id/encounter_des"
+        style="@style/des_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/encounter_des"
-        android:text="偶遇模式"
-        style="@style/des_text"/>
+        android:text="偶遇模式" />
 
 
 </LinearLayout>

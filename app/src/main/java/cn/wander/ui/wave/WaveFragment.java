@@ -2,26 +2,23 @@ package cn.wander.ui.wave;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 import cn.wander.kFramework.R;
+import cn.wander.ui.child.ChildActivity;
+import cn.wander.ui.circle.CircleActivity;
 import cn.wander.ui.encounter.EncounterActivity;
+import cn.wander.ui.health.FitnessActivity;
 
 public class WaveFragment extends Fragment implements View.OnClickListener {
 
-    private ImageView health;
-    private LinearLayout encounter;
-    private ImageView child;
-    private ImageView circle;
+    private LinearLayout encounter,child,health,circle;
 
     public WaveFragment() {
         // Required empty public constructor
@@ -44,10 +41,10 @@ public class WaveFragment extends Fragment implements View.OnClickListener {
     }
 
     private void init(View view) {
-        circle = (ImageView) view.findViewById(R.id.circle);
+        circle = (LinearLayout) view.findViewById(R.id.circle);
         encounter = (LinearLayout) view.findViewById(R.id.encounter);
-        health = (ImageView) view.findViewById(R.id.health);
-        child = (ImageView) view.findViewById(R.id.child);
+        health = (LinearLayout) view.findViewById(R.id.health);
+        child = (LinearLayout) view.findViewById(R.id.child);
         encounter.setOnClickListener(this);
         health.setOnClickListener(this);
         child.setOnClickListener(this);
@@ -69,13 +66,16 @@ public class WaveFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.child:
+                jumpToActivity(ChildActivity.class);
                 break;
             case R.id.circle:
+                jumpToActivity(CircleActivity.class);
                 break;
             case R.id.encounter:
                 jumpToActivity(EncounterActivity.class);
                 break;
             case R.id.health:
+                jumpToActivity(FitnessActivity.class);
                 break;
         }
     }

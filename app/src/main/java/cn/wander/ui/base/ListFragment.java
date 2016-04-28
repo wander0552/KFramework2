@@ -1,32 +1,24 @@
-package cn.wander.ui.friends;
+package cn.wander.ui.base;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.ListFragment;
-import android.support.v4.view.ViewPager;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import cn.wander.Utils.views.PagerSlidingLinearStrip;
-import cn.wander.kFramework.MainTabsAdapter;
 import cn.wander.kFramework.R;
-import cn.wander.ui.mine.MineFragment;
-import cn.wander.ui.wave.WaveFragment;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link FriendsFragment.OnFragmentInteractionListener} interface
+ * {@link ListFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link FriendsFragment#newInstance} factory method to
+ * Use the {@link ListFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FriendsFragment extends Fragment {
+public class ListFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -37,11 +29,8 @@ public class FriendsFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    private ViewPager viewPager;
-    private MainTabsAdapter mainTabsAdapter;
-    private PagerSlidingLinearStrip friendTabs;
 
-    public FriendsFragment() {
+    public ListFragment() {
         // Required empty public constructor
     }
 
@@ -51,11 +40,11 @@ public class FriendsFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FriendsFragment.
+     * @return A new instance of fragment ListFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FriendsFragment newInstance(String param1, String param2) {
-        FriendsFragment fragment = new FriendsFragment();
+    public static ListFragment newInstance(String param1, String param2) {
+        ListFragment fragment = new ListFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -76,47 +65,10 @@ public class FriendsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_friends, container, false);
-        initView(view);
-        return view;
+        return inflater.inflate(R.layout.fragment_list, container, false);
     }
 
-    private void initView(View view) {
-        viewPager = (ViewPager) view.findViewById(R.id.Viewpager);
-        friendTabs = (PagerSlidingLinearStrip) view.findViewById(R.id.tabs);
-        initTabsValue();
-        mainTabsAdapter = new MainTabsAdapter(getActivity());
-        mainTabsAdapter.addTab("square", "动态", ListFragment.class, null);
-        mainTabsAdapter.addTab("friends", "知音", ListFragment.class, null);
-        mainTabsAdapter.addTab("Mine", "我", MineFragment.class, null);
-        viewPager.setAdapter(mainTabsAdapter);
-        viewPager.setCurrentItem(0);
-        friendTabs.setViewPager(viewPager);
-        viewPager.setOffscreenPageLimit(4);
-    }
-
-
-    /**
-     * mPagerSlidingTabStrip默认值配置
-     */
-    private void initTabsValue() {
-        // 底部游标颜色
-        friendTabs.setIndicatorColor(getResources().getColor(R.color.primary));
-        // tab背景
-        friendTabs.setBackgroundColor(Color.WHITE);
-        //设置tab的文字大小
-//        tabs.setTabTextSize(SystemInfo.heightPixels/12);
-        // tab底线高度
-        friendTabs.setUnderlineHeight((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                1, getResources().getDisplayMetrics()));
-        // 游标高度
-        friendTabs.setIndicatorHeight((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                4, getResources().getDisplayMetrics()));
-        // 选中的文字颜色
-        friendTabs.setSelectColor(getResources().getColor(R.color.kw_common_cl_black));
-    }
-
-
+    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -129,6 +81,8 @@ public class FriendsFragment extends Fragment {
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
         }
     }
 

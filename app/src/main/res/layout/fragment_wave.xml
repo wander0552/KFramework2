@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,42 +12,46 @@
         android:src="@drawable/main_bg"
         android:visibility="visible" />
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/mods"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/circle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="20dp"
             android:layout_marginBottom="10dp"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <TextView
                 style="@style/tabs_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="圈子" />
+                android:text="回声" />
 
             <cn.wander.Utils.views.CircleImageView
-                android:id="@+id/circle"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/header_bg" />
         </LinearLayout>
+
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:clickable="true"
             android:id="@+id/encounter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toRightOf="@id/circle"
             android:background="?attr/selectableItemBackground"
-            android:orientation="horizontal">
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
                 style="@style/tabs_title"
@@ -60,14 +64,17 @@
                 android:layout_height="50dp"
                 android:src="@drawable/encounter" />
         </LinearLayout>
+
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/health"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:clickable="true"
+            android:layout_below="@+id/circle"
+            android:layout_margin="20dp"
             android:background="?attr/selectableItemBackground"
-            android:orientation="horizontal">
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
                 style="@style/tabs_title"
@@ -76,35 +83,84 @@
                 android:text="运动" />
 
             <cn.wander.Utils.views.CircleImageView
-                android:id="@+id/health"
+
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/heath" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/child"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:clickable="true"
+            android:layout_below="@+id/circle"
+            android:layout_margin="20dp"
+            android:layout_toRightOf="@id/health"
             android:background="?attr/selectableItemBackground"
-            android:orientation="horizontal">
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
                 style="@style/tabs_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="音缘" />
+                android:text="儿童" />
 
             <cn.wander.Utils.views.CircleImageView
-                android:id="@+id/child"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/child" />
         </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/mods"
+        android:background="@color/kw_common_cl_white_alpha_30">
+
+        <ScrollView
+            android:id="@+id/square_des"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                style="@style/des_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/square_radar_des"/>
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/square_img"
+            android:background="@color/primary"
+            android:ellipsize="marquee"
+            android:paddingLeft="10dp"
+            android:gravity="center"
+            android:text="周围的声波的接入，及时关闭。语音和文字相互转化" />
 
 
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/square_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/voice" />
 
-</FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView"
+            android:layout_marginTop="27dp"
+            android:layout_toRightOf="@+id/square_img"
+            style="@style/des_text"
+            android:text="设置" />
+
+
+    </RelativeLayout>
+</RelativeLayout>
