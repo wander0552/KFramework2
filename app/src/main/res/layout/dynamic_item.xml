@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical">
+
+        <cn.wander.Utils.views.CircleImageView
+            android:id="@+id/header"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/heath" />
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/des_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/header"
+            android:text="wander" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name"
+            android:layout_marginTop="2dp"
+            android:layout_toRightOf="@id/header"
+            android:text="简介"
+            android:textSize="10sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rr_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/info"
+        android:layout_margin="8dp">
+
+        <TextView
+            android:id="@+id/content"
+            style="@style/des_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="简约思维\n评论和作品\n其他用户信息 只能看到基本信息" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/content"
+            android:layout_marginTop="3dp"
+            android:singleLine="true"
+            android:text="时间，地点"
+            android:textSize="10sp" />
+
+        <ImageView
+            android:id="@+id/dynamic_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@android:drawable/ic_media_play" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="3dp"
+            android:layout_below="@id/content"
+            android:baselineAlignBottom="true"
+            android:id="@+id/dynamic_more"
+            android:src="@android:drawable/stat_notify_chat" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rr_content"
+        android:id="@+id/comments"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical">
+
+        <include layout="@layout/item_comment" />
+
+        <include layout="@layout/item_comment" />
+
+        <include layout="@layout/item_comment" />
+
+        <include layout="@layout/item_comment" />
+
+        <include layout="@layout/item_comment" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/comments"
+        android:background="@color/kw_common_cl_black_66"/>
+
+
+</RelativeLayout>

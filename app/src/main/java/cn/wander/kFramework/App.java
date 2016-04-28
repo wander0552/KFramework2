@@ -6,6 +6,8 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Handler;
 
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechUtility;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
 import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.impl.UsingFreqLimitedMemoryCache;
@@ -62,6 +64,8 @@ public class App extends Application {
         super.onCreate();
         instance = this;
         initImageLoader(this);
+
+        SpeechUtility.createUtility(this, SpeechConstant.APPID +"=570cc6ff");
         SDCardUtils.init();
         OkHttpFinalConfiguration.Builder builder = new OkHttpFinalConfiguration.Builder().setTimeout(20000);
         OkHttpFinal.getInstance().init(builder.build());

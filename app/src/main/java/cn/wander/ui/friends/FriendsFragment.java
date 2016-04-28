@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.ListFragment;
 import android.support.v4.view.ViewPager;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -15,8 +14,8 @@ import android.view.ViewGroup;
 import cn.wander.Utils.views.PagerSlidingLinearStrip;
 import cn.wander.kFramework.MainTabsAdapter;
 import cn.wander.kFramework.R;
+import cn.wander.ui.dynamic.MListFragment;
 import cn.wander.ui.mine.MineFragment;
-import cn.wander.ui.wave.WaveFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -86,9 +85,9 @@ public class FriendsFragment extends Fragment {
         friendTabs = (PagerSlidingLinearStrip) view.findViewById(R.id.tabs);
         initTabsValue();
         mainTabsAdapter = new MainTabsAdapter(getActivity());
-        mainTabsAdapter.addTab("square", "动态", ListFragment.class, null);
-        mainTabsAdapter.addTab("friends", "知音", ListFragment.class, null);
-        mainTabsAdapter.addTab("Mine", "我", MineFragment.class, null);
+        mainTabsAdapter.addTab("square", "关注", MListFragment.class, null);
+        mainTabsAdapter.addTab("friends", "知音", MListFragment.class, null);
+        mainTabsAdapter.addTab("Mine", "知音动态", MineFragment.class, null);
         viewPager.setAdapter(mainTabsAdapter);
         viewPager.setCurrentItem(0);
         friendTabs.setViewPager(viewPager);
@@ -143,7 +142,7 @@ public class FriendsFragment extends Fragment {
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p/>
+     * <p>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.

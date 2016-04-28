@@ -115,13 +115,13 @@ public class EncounterActivity extends BaseActivity implements SwipeFlingAdapter
             Rect outRect = new Rect();
             child.getGlobalVisibleRect(outRect);
             if (outRect.contains(x, y)) {
-                Toast.makeText(this, "click 大图", Toast.LENGTH_SHORT);
+                Toast.makeText(this, "click 大图", Toast.LENGTH_SHORT).show();
             } else {
                 outRect.setEmpty();
                 child = vh.collectView;
                 child.getGlobalVisibleRect(outRect);
                 if (outRect.contains(x, y)) {
-                    Toast.makeText(this, "click 关注", Toast.LENGTH_SHORT);
+                    Toast.makeText(this, "click 关注", Toast.LENGTH_SHORT).show();
 
                 }
             }
